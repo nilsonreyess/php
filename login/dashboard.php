@@ -19,6 +19,7 @@ if ($acceso) {
     </head>
     <body>
         <h1>Bienvenido(a) al escritorio de mi página web</h1>
+        <a href="./registrar.php">Registrar</a>
         <a href="./index.php">Salir</a>
     </body>
     </html>
