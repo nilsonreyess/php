@@ -9,7 +9,7 @@ $password = $_POST["password"];
 if (validate_user($username, $password, $data_users)) {
     header("Location: ./dashboard.php");
 } else {
-    header("Location: ./login.php");
+    header("Location: ./login.php?error=true");
 }
 
 ?>
