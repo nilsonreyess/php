@@ -1,3 +1,8 @@
+<?php
+    if (isset($_COOKIE['USERNAME'])) {
+        header("Location: ./dashboard.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

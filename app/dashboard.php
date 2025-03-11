@@ -1,3 +1,8 @@
+<?php
+    if (!isset($_COOKIE['USERNAME'])) {
+        header("Location: ./login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,8 +31,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Usuarios</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./productos.php">Productos</a>
+                    </li>
                     </ul>
-                    <a href="./" class="btn btn-success">Cerrar sesión</a>
+                    <a href="./logout.php" class="btn btn-success">Cerrar sesión</a>
                 </div>
                 </div>
             </nav>
@@ -51,17 +59,17 @@
                     </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item active">
                     <img src="./banners/banner02.jpg" alt="">
                     <div class="container">
                     <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
+                        <h1>Bienvenido <?php echo $_COOKIE['FULLNAME']; ?>.</h1>
                         <p>Some representative placeholder content for the second slide of the carousel.</p>
                         <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
                     </div>
                     </div>
                 </div>
-                <div class="carousel-item active">
+                <div class="carousel-item">
                     <img src="./banners/banner02.jpg" alt="">
                     <div class="container">
                     <div class="carousel-caption text-end">
@@ -109,29 +117,6 @@
         </footer>
     </main>
 
-
-
-
-
-
-    <!-- <main>
-        <header>
-            <nav>
-                logo 
-                <ul>
-                    <li><a href="./">Inicio</a></li>
-                    <li><a href="./users.php">Usuarios</a></li>
-                    <li><a href="./logout.php">Cerrar Sesión</a></li>
-                </ul>
-            </nav>
-        </header>
-        <section>
-            <h2>Hola Pepito, bienvenido al sitio de administración.</h2>
-        </section>
-        <footer>
-            <h3>Aquí va el pie de página</h3>
-        </footer>
-    </main> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
