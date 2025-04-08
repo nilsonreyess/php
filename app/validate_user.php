@@ -4,7 +4,7 @@ require_once "conectar.php";
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-$querySQL = "SELECT fullname, username FROM users WHERE username = '{$username}' AND password = '{$password}'";
+$querySQL = "SELECT fullname, username, role FROM users WHERE username = '{$username}' AND password = '{$password}'";
 $queryDB = mysqli_query($connection, $querySQL);
 $response = mysqli_fetch_assoc($queryDB);
 mysqli_free_result($queryDB);
@@ -16,6 +16,8 @@ if ($response == NULL) {
 
 setcookie("USERNAME", $response["username"]);
 setcookie("FULLNAME", $response["fullname"]);
+setcookie("ROLE", $response["role"]);
+
 header("Location: ./dashboard.php");
 
 

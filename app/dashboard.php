@@ -28,9 +28,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="./dashboard.php">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./usuarios.php">Usuarios</a>
-                    </li>
+                    <?php if ($_COOKIE['ROLE'] == "Admin") { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./usuarios.php">Usuarios</a>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./productos.php">Productos</a>
                     </li>
