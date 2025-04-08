@@ -31,10 +31,10 @@
                         <a class="nav-link" aria-current="page" href="./dashboard.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Usuarios</a>
+                        <a class="nav-link" href="./usuarios.php">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./productos.php">Productos</a>
+                        <a class="nav-link active" href="#">Productos</a>
                     </li>
                     </ul>
                     <a href="./logout.php" class="btn btn-success">Cerrar sesión</a>
@@ -47,7 +47,7 @@
             <h2 class="my-2">Crear nuevo producto</h2>
             <hr>
             <div class="w-50">
-                <form action="">
+                <form action="guardar_producto.php" method="post">
                     <div class="form-floating mb-3">
                         <input type="text" name="codigo" class="form-control" id="floatCodigo" placeholder="Código">
                         <label for="floatCodigo">Código</label>

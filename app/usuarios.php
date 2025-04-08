@@ -77,7 +77,7 @@
                         <td>
                             <a href="./usuario_edit.php?id=<?php echo $user[0]; ?>" class="btn btn-warning btn-sm">Editar</a> 
                             |
-                            <a href="" class="btn btn-danger btn-sm">Borrar</a>
+                            <a href="./borrar_usuario.php?id=<?php echo $user[0]; ?>" class="btn btn-danger btn-sm">Borrar</a>
                         </td>
                     </tr>
                     <?php } ?>

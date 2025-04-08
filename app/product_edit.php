@@ -3,7 +3,12 @@
         header("Location: ./login.php");
     }
 
-    include "./db.php";
+    require_once "conectar.php";
+    $id = $_GET["id"];
+    $querySQL = "SELECT * FROM products WHERE id = {$id}";
+    $queryDB = mysqli_query($connection, $querySQL);
+    $response = mysqli_fetch_assoc($queryDB);
+    mysqli_free_result($queryDB);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -31,10 +36,10 @@
                         <a class="nav-link" aria-current="page" href="./dashboard.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Usuarios</a>
+                        <a class="nav-link" href="./usuarios.php">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./productos.php">Productos</a>
+                        <a class="nav-link active" href="#">Productos</a>
                     </li>
                     </ul>
                     <a href="./logout.php" class="btn btn-success">Cerrar sesión</a>
@@ -47,17 +52,18 @@
             <h2 class="my-2">Editar producto</h2>
             <hr>
             <div class="w-50">
-                <form action="">
+                <form action="./update_product.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <div class="form-floating mb-3">
-                        <input type="text" name="codigo" class="form-control" id="floatCodigo" placeholder="Código">
+                        <input type="text" name="codigo" class="form-control" id="floatCodigo" placeholder="Código" value="<?php echo $response['codigo']; ?>">
                         <label for="floatCodigo">Código</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" name="producto" class="form-control" id="floatProducto" placeholder="Producto">
+                        <input type="text" name="producto" class="form-control" id="floatProducto" placeholder="Producto" value="<?php echo $response['producto']; ?>">
                         <label for="floatProducto">Producto</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" name="stock" class="form-control" id="floatStock" placeholder="Stock">
+                        <input type="number" name="stock" class="form-control" id="floatStock" placeholder="Stock" value="<?php echo $response['stock']; ?>">
                         <label for="floatStock">Stock</label>
                     </div>
                     <div class="d-flex justify-content-around">

@@ -3,7 +3,11 @@
         header("Location: ./login.php");
     }
 
-    include "./db.php";
+    require_once "conectar.php";
+    $querySQL = "SELECT * FROM products";
+    $queryDB = mysqli_query($connection, $querySQL);
+    $response = mysqli_fetch_all($queryDB);
+    mysqli_free_result($queryDB);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -31,10 +35,10 @@
                         <a class="nav-link" aria-current="page" href="./dashboard.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Usuarios</a>
+                        <a class="nav-link" href="./usuarios.php">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./productos.php">Productos</a>
+                        <a class="nav-link active" href="#">Productos</a>
                     </li>
                     </ul>
                     <a href="./logout.php" class="btn btn-success">Cerrar sesión</a>
@@ -63,17 +67,17 @@
                 <tbody>
                     <?php
                         $item = 1; 
-                        foreach ($products as $product) { 
+                        foreach ($response as $product) { 
                     ?>
                     <tr>
                         <th scope="row"><?php echo $item++; ?></th>
-                        <td><?php echo $product['codigo']; ?></td>
-                        <td><?php echo $product['producto']; ?></td>
-                        <td><?php echo $product['stock']; ?></td>
+                        <td><?php echo $product[1]; ?></td>
+                        <td><?php echo $product[2]; ?></td>
+                        <td><?php echo $product[3]; ?></td>
                         <td>
-                            <a href="./product_edit.php?id=<?php echo $product['id']; ?>" class="btn btn-warning btn-sm">Editar</a> 
+                            <a href="./product_edit.php?id=<?php echo $product[0]; ?>" class="btn btn-warning btn-sm">Editar</a> 
                             |
-                            <a href="" class="btn btn-danger btn-sm">Borrar</a>
+                            <a href="./borrar_producto.php?id=<?php echo $product[0]; ?>" class="btn btn-danger btn-sm">Borrar</a>
                         </td>
                     </tr>
                     <?php } ?>
