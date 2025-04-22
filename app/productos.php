@@ -78,8 +78,10 @@
                         <td><?php echo $product[3]; ?></td>
                         <td>
                             <a href="./product_edit.php?id=<?php echo $product[0]; ?>" class="btn btn-warning btn-sm">Editar</a> 
-                            |
-                            <a href="./borrar_producto.php?id=<?php echo $product[0]; ?>" class="btn btn-danger btn-sm">Borrar</a>
+                            <?php if ($_COOKIE['ROLE'] == "Admin") { ?>
+                                |
+                                <a href="./borrar_producto.php?id=<?php echo $product[0]; ?>" class="btn btn-danger btn-sm">Borrar</a>
+                            <?php } ?>
                         </td>
                     </tr>
                     <?php } ?>

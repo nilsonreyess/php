@@ -19,7 +19,9 @@
                     <div class="alert alert-danger" role="alert">Error: Datos inválidos.</div>
                 <?php } ?>
                 <div class="text-center">
-                    <img class="mb-4" src="./img/logo.avif" alt="" width="72" height="57">
+                    <a href="./" title="Regresar a la página principal">
+                        <img class="mb-4" src="./img/logo.avif" alt="" width="72" height="57">
+                    </a>
                     <h1 class="h3 mb-3 fw-normal">Ingresar a mi App</h1>
                 </div>
 
