@@ -1,5 +1,5 @@
 <?php
-    if (!isset($_COOKIE['USERNAME'])) {
+    if (!isset($_COOKIE['USERNAME']) || $_COOKIE['ROLE'] != "Admin") {
         header("Location: ./login.php");
     }
 ?>
