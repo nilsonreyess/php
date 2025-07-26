@@ -1,22 +1,17 @@
 <?php
-// Variables
-$edad = 35;
+/**
+ * 1. COMENTARIOS EN PHP
+ * 2. Variables
+ * 3. Tipos de datos
+ */
 
-echo $edad;
-echo "<br>";
+// Comentario de una sola línea
 
-$edad = "Treinta y cinco";
-
-echo $edad;
-echo "<br>";
-
-$edad = true;
-
-echo $edad;
-
-$nombre_completo = "Pepito Pérez";
-
-echo $nombre_completo;
-
+/**
+ * Comentario
+ * de
+ * varias
+ * líneas
+ */
 
 ?>
